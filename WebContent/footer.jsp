@@ -7,12 +7,14 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="./css/style.css">
-<meta http-equiv="refresh" content="0;URL='HomeAction'"/>
-<title>sample-web</title>
+<link rel="text/javascript" href="./js/smoothscroll.js">
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
+<script src="js/smoothscroll.js"></script>
+<title>フッター</title>
 </head>
 <body>
 <div id="footer">
-	<s:include value="footer.jsp"/>
+Copyright 2018 sample web all rights reserved.
 </div>
 </body>
 </html>

@@ -7,12 +7,13 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="./css/style.css">
-<meta http-equiv="refresh" content="0;URL='HomeAction'"/>
-<title>sample-web</title>
+<title>ホーム</title>
 </head>
 <body>
-<div id="footer">
-	<s:include value="footer.jsp"/>
+<jsp:include page="header.jsp" />
+<div id="contents">
+<h1>ホーム画面</h1>
 </div>
+<s:include value="footer.jsp"/>
 </body>
 </html>
