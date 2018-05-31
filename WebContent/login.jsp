@@ -79,8 +79,6 @@ function goResetPasswordAction(){
 		</s:form>
 	</div>
 </div>
-</div>
-
 <div class="submit_btn_box">
 <div id=".contents-btn-set">
 <s:form action="ResetPasswordAction">
@@ -88,6 +86,9 @@ function goResetPasswordAction(){
 </s:form>
 </div>
 </div>
+</div>
+
+
 <s:include value="footer.jsp"/>
 </body>
 </html>
