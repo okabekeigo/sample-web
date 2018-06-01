@@ -28,7 +28,7 @@ insert into user_info values
 (1,"guest","guest","インターノウス","ゲストユーザー","いんたーのうす","げすとゆーざー",0,"guest@gmail.com",0,0,now(),now());
 
 create table product_info(
-id int primary key not null comment "ID",
+id int primary key not null auto_increment comment "ID",
 product_id int unique not null comment "商品ID",
 product_name varchar(100) unique not null comment "商品名",
 product_name_kana varchar(100) not null comment "商品名かな",
