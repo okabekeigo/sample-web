@@ -19,6 +19,7 @@ function goCartAction(){
 	document.getElementById("form").action="CartAction";
 }
 function goProductListAction(){
+	document.getElementById("categoryId").value=1;
 	document.getElementById("form").action="ProductListAction";
 }
 function goLogoutAction(){
@@ -39,7 +40,7 @@ Sample Web
 <ul>
 <s:form id="form" name="form">
 	<s:if test='#session.containsKey("mCategoryDtoList")'>
-	<li><s:select name="categoryId" list="#session.mCategoryDtoList" listValue="categoryName" listKey="categoryId" class="cs-div"/></li>
+	<li><s:select name="categoryId" list="#session.mCategoryDtoList" listValue="categoryName" listKey="categoryId" class="cs-div" id="categoryId"/></li>
 	</s:if>
 	<li><s:textfield name="keywords" class="txt-keywords" placeholder="検索ワード" /></li>
 	<li><s:submit value="商品検索" class="submit_btn" onclick="goSearchItemAction();"/><li>
