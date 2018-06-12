@@ -8,22 +8,6 @@ import com.internousdev.sampleweb.dto.ProductInfoDTO;
 
 public class Pagination {
 
-	public ArrayList<ArrayList<ProductInfoDTO>> paginate_old(List<ProductInfoDTO> productInfoDtoList,int pageNumber){
-		int elementNumber = 0;
-		ArrayList<ArrayList<ProductInfoDTO>> list = new ArrayList<>();
-		list.add(new ArrayList<ProductInfoDTO>());
-		for(int page=1; page<= productInfoDtoList.size(); page++){
-			list.get(elementNumber).add(productInfoDtoList.get(page - 1));
-				if(page % 9 == 0 && page != 0){
-					elementNumber++;
-					list.add(new ArrayList<ProductInfoDTO>());
-				}
-		}
-		System.out.println(list);
-		return list;
-	}
-
-
 	public PaginationDTO initialize(List<ProductInfoDTO> list, int pageSize) {
 
 		PaginationDTO paginationDTO = new PaginationDTO();
