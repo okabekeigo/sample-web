@@ -86,44 +86,6 @@ public class ProductInfoDAO {
 		return productInfoDTO;
 	}
 
-	public List<ProductInfoDTO> getProductInfoListByCategoryId(int categoryId, int productId) {
-		DBConnector dbConnector = new DBConnector();
-		Connection connection = dbConnector.getConnection();
-		List<ProductInfoDTO> productInfoDtoList = new ArrayList<ProductInfoDTO>();
-		String sql = "select * from product_info where category_id=? and product_id not in(?)";
-		try {
-			PreparedStatement preparedStatement = connection.prepareStatement(sql);
-			preparedStatement.setInt(1, categoryId);
-			preparedStatement.setInt(2, productId);
-			ResultSet resultSet = preparedStatement.executeQuery();
-			while (resultSet.next()) {
-				ProductInfoDTO productInfoDTO = new ProductInfoDTO();
-				productInfoDTO.setId(resultSet.getInt("id"));
-				productInfoDTO.setProductId(resultSet.getInt("product_id"));
-				productInfoDTO.setProductName(resultSet.getString("product_name"));
-				productInfoDTO.setProductNameKana(resultSet.getString("product_name_kana"));
-				productInfoDTO.setProductDescription(resultSet.getString("product_description"));
-				productInfoDTO.setCatgoryId(resultSet.getInt("category_id"));
-				productInfoDTO.setPrice(resultSet.getInt("price"));
-				productInfoDTO.setImageFilePath(resultSet.getString("image_file_path"));
-				productInfoDTO.setReleaseDate(resultSet.getDate("release_date"));
-				productInfoDTO.setReleaseCompany(resultSet.getString("release_company"));
-				productInfoDTO.setStatus(resultSet.getInt("status"));
-				productInfoDTO.setUpdateDate(resultSet.getDate("regist_date"));
-				productInfoDTO.setUpdateDate(resultSet.getDate("update_date"));
-				productInfoDtoList.add(productInfoDTO);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		try {
-			connection.close();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return productInfoDtoList;
-	}
-
 	public List<ProductInfoDTO> getProductInfoListByCategoryId(int categoryId, int productId, int limitOffset,
 			int limitRowCount) {
 		DBConnector dbConnector = new DBConnector();
