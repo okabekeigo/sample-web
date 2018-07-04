@@ -8,7 +8,7 @@ public class ProductInfoDTO {
 	private String productName;
 	private String productNameKana;
 	private String productDescription;
-	private int catgoryId;
+	private int categoryId;
 	private int price;
 	private String imageFilePath;
 	private String imageFileName;
@@ -47,11 +47,11 @@ public class ProductInfoDTO {
 	public void setProductDescription(String productDescription) {
 		this.productDescription = productDescription;
 	}
-	public int getCatgoryId() {
-		return catgoryId;
+	public int getCategoryId() {
+		return categoryId;
 	}
-	public void setCatgoryId(int catgoryId) {
-		this.catgoryId = catgoryId;
+	public void setCategoryId(int categoryId) {
+		this.categoryId = categoryId;
 	}
 	public int getPrice() {
 		return price;

@@ -28,7 +28,7 @@ public class ProductInfoDAO {
 				productInfoDto.setProductName(resultSet.getString("product_name"));
 				productInfoDto.setProductNameKana(resultSet.getString("product_name_kana"));
 				productInfoDto.setProductDescription(resultSet.getString("product_description"));
-				productInfoDto.setCatgoryId(resultSet.getInt("category_id"));
+				productInfoDto.setCategoryId(resultSet.getInt("category_id"));
 				productInfoDto.setPrice(resultSet.getInt("price"));
 				productInfoDto.setImageFilePath(resultSet.getString("image_file_path"));
 				productInfoDto.setImageFileName(resultSet.getString("image_file_name"));
@@ -65,7 +65,7 @@ public class ProductInfoDAO {
 				productInfoDTO.setProductName(resultSet.getString("product_name"));
 				productInfoDTO.setProductNameKana(resultSet.getString("product_name_kana"));
 				productInfoDTO.setProductDescription(resultSet.getString("product_description"));
-				productInfoDTO.setCatgoryId(resultSet.getInt("category_id"));
+				productInfoDTO.setCategoryId(resultSet.getInt("category_id"));
 				productInfoDTO.setPrice(resultSet.getInt("price"));
 				productInfoDTO.setImageFilePath(resultSet.getString("image_file_path"));
 				productInfoDTO.setImageFileName(resultSet.getString("image_file_name"));
@@ -106,7 +106,7 @@ public class ProductInfoDAO {
 				productInfoDTO.setProductName(resultSet.getString("product_name"));
 				productInfoDTO.setProductNameKana(resultSet.getString("product_name_kana"));
 				productInfoDTO.setProductDescription(resultSet.getString("product_description"));
-				productInfoDTO.setCatgoryId(resultSet.getInt("category_id"));
+				productInfoDTO.setCategoryId(resultSet.getInt("category_id"));
 				productInfoDTO.setPrice(resultSet.getInt("price"));
 				productInfoDTO.setImageFilePath(resultSet.getString("image_file_path"));
 				productInfoDTO.setImageFileName(resultSet.getString("image_file_name"));
@@ -152,7 +152,7 @@ public class ProductInfoDAO {
 				productInfoDTO.setProductName(resultSet.getString("product_name"));
 				productInfoDTO.setProductNameKana(resultSet.getString("product_name_kana"));
 				productInfoDTO.setProductDescription(resultSet.getString("product_description"));
-				productInfoDTO.setCatgoryId(resultSet.getInt("category_id"));
+				productInfoDTO.setCategoryId(resultSet.getInt("category_id"));
 				productInfoDTO.setPrice(resultSet.getInt("price"));
 				productInfoDTO.setImageFilePath(resultSet.getString("image_file_path"));
 				productInfoDTO.setImageFileName(resultSet.getString("image_file_name"));
@@ -198,7 +198,7 @@ public class ProductInfoDAO {
 				productInfoDTO.setProductName(resultSet.getString("product_name"));
 				productInfoDTO.setProductNameKana(resultSet.getString("product_name_kana"));
 				productInfoDTO.setProductDescription(resultSet.getString("product_description"));
-				productInfoDTO.setCatgoryId(resultSet.getInt("category_id"));
+				productInfoDTO.setCategoryId(resultSet.getInt("category_id"));
 				productInfoDTO.setPrice(resultSet.getInt("price"));
 				productInfoDTO.setImageFilePath(resultSet.getString("image_file_path"));
 				productInfoDTO.setImageFileName(resultSet.getString("image_file_name"));

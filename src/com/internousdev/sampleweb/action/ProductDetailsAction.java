@@ -37,7 +37,7 @@ public class ProductDetailsAction extends ActionSupport implements SessionAware{
 		session.put("productDescription", productInfoDTO.getProductDescription());
 		List<Integer> productCountList = new ArrayList<Integer>(Arrays.asList(1,2,3,4,5));
 		session.put("productCountList", productCountList);
-		productInfoDtoList = productInfoDAO.getProductInfoListByCategoryId(productInfoDTO.getCatgoryId(), productInfoDTO.getProductId(), 0, 3);
+		productInfoDtoList = productInfoDAO.getProductInfoListByCategoryId(productInfoDTO.getCategoryId(), productInfoDTO.getProductId(), 0, 3);
 		Iterator<ProductInfoDTO> iterator = productInfoDtoList.iterator();
 		if(!(iterator.hasNext())) {
 			productCountList = null;
