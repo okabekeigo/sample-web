@@ -33,6 +33,9 @@ public class AddCartAction extends ActionSupport implements SessionAware{
 		String result=ERROR;
 		String userId = null;
 		String tempUserId = null;
+
+		session.remove("checkListErrorMessageList");
+
 		 if (!(session.containsKey("loginId")) && !(session.containsKey("tempUserId"))) {
 			 CommonUtility commonUtility = new CommonUtility();
 			 session.put("tempUserId", commonUtility.getRamdomValue());
