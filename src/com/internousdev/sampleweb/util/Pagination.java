@@ -9,10 +9,9 @@ import com.internousdev.sampleweb.dto.ProductInfoDTO;
 public class Pagination {
 
 	public PaginationDTO initialize(List<ProductInfoDTO> list, int pageSize) {
-
 		PaginationDTO paginationDTO = new PaginationDTO();
 		// 全ページ数
-		paginationDTO.setTotalPageSize((int)(Math.ceil(list.size() / pageSize)));
+		paginationDTO.setTotalPageSize((int)(Math.ceil((double)list.size() / pageSize)));
 		// 現在のページ番号
 		paginationDTO.setCurrentPageNo(1);
 		// 全レコード数
@@ -29,8 +28,10 @@ public class Pagination {
 
 		List<ProductInfoDTO> productInfoPages = new ArrayList<ProductInfoDTO>();
 		for(int pageNumberOffset=paginationDTO.getStartRecordNo(); pageNumberOffset <= paginationDTO.getEndRecordNo(); pageNumberOffset++) {
-			productInfoPages.add(list.get(pageNumberOffset));
-		}
+			if(pageNumberOffset <= list.size() -1) {
+				productInfoPages.add(list.get(pageNumberOffset));
+			}
+					}
 		paginationDTO.setCurrentProductInfoPage(productInfoPages);
 
 		if((paginationDTO.getStartRecordNo() - 1) <= 0) {
@@ -49,12 +50,10 @@ public class Pagination {
 		return paginationDTO;
 	}
 
-
 	public PaginationDTO getPage(List<ProductInfoDTO> list, int pageSize, String pageNo) {
-
 		PaginationDTO paginationDTO = new PaginationDTO();
 		// 全ページ数
-		paginationDTO.setTotalPageSize((int)(Math.ceil(list.size() / pageSize)));
+		paginationDTO.setTotalPageSize((int)(Math.ceil((double)list.size() / pageSize)));
 		// 現在のページ番号
 		paginationDTO.setCurrentPageNo(Integer.parseInt(pageNo));
 		// 全レコード数
@@ -73,7 +72,9 @@ public class Pagination {
 
 		List<ProductInfoDTO> productInfoPages = new ArrayList<ProductInfoDTO>();
 		for(int pageNumberOffset=paginationDTO.getStartRecordNo(); pageNumberOffset <= paginationDTO.getEndRecordNo(); pageNumberOffset++) {
-			productInfoPages.add(list.get(pageNumberOffset));
+			if(pageNumberOffset <= list.size() -1) {
+				productInfoPages.add(list.get(pageNumberOffset));
+			}
 		}
 		paginationDTO.setCurrentProductInfoPage(productInfoPages);
 
@@ -90,9 +91,6 @@ public class Pagination {
 			paginationDTO.setNextPage(true);
 			paginationDTO.setNextPageNo(paginationDTO.getCurrentPageNo() + 1);
 		}
-
 		return paginationDTO;
-
 	}
-
 }
