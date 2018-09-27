@@ -139,7 +139,7 @@ public class ProductInfoDAO {
 				sql += " (product_name like '%" + keyword + "%' or product_name_kana like '%" + keyword + "%')";
 				initializeFlag = false;
 			} else {
-				sql += " and (product_name like '%" + keyword + "%' or product_name_kana like '%" + keyword + "%')";
+				sql += " or (product_name like '%" + keyword + "%' or product_name_kana like '%" + keyword + "%')";
 			}
 		}
 		try {
@@ -185,7 +185,7 @@ public class ProductInfoDAO {
 				sql += " category_id=" + categoryId + " and (product_name like '%" + keyword + "%' or product_name_kana like '%" + keyword + "%')";
 				initializeFlag = false;
 			} else {
-				sql += " and (product_name like '%" + keyword + "%' or product_name_kana like '%" + keyword + "%')";
+				sql += " or (product_name like '%" + keyword + "%' or product_name_kana like '%" + keyword + "%')";
 			}
 		}
 		try {
