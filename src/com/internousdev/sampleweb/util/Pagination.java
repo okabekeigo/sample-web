@@ -28,10 +28,11 @@ public class Pagination {
 
 		List<ProductInfoDTO> productInfoPages = new ArrayList<ProductInfoDTO>();
 		for(int pageNumberOffset=paginationDTO.getStartRecordNo(); pageNumberOffset <= paginationDTO.getEndRecordNo(); pageNumberOffset++) {
-			if(pageNumberOffset <= list.size() -1) {
-				productInfoPages.add(list.get(pageNumberOffset));
+			if(pageNumberOffset > list.size() -1) {
+				break;
 			}
-					}
+			productInfoPages.add(list.get(pageNumberOffset));
+		}
 		paginationDTO.setCurrentProductInfoPage(productInfoPages);
 
 		if((paginationDTO.getStartRecordNo() - 1) <= 0) {
@@ -72,9 +73,10 @@ public class Pagination {
 
 		List<ProductInfoDTO> productInfoPages = new ArrayList<ProductInfoDTO>();
 		for(int pageNumberOffset=paginationDTO.getStartRecordNo(); pageNumberOffset <= paginationDTO.getEndRecordNo(); pageNumberOffset++) {
-			if(pageNumberOffset <= list.size() -1) {
-				productInfoPages.add(list.get(pageNumberOffset));
+			if(pageNumberOffset > list.size() -1) {
+				break;
 			}
+			productInfoPages.add(list.get(pageNumberOffset));
 		}
 		paginationDTO.setCurrentProductInfoPage(productInfoPages);
 
