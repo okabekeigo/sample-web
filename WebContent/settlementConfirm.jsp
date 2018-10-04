@@ -14,6 +14,8 @@
 <jsp:include page="header.jsp" />
 <div id="contents">
 <h1>決済確認画面</h1>
+<s:if test="#session.destinationInfoDtoList.size()>0">
+
 <div class="info">
 	送り先情報を選択してください
 </div>
@@ -65,7 +67,12 @@
 </div>
 </div>
 	</s:form>
-
+</s:if>
+<s:else>
+<div class="info">
+宛先情報はありません
+</div>
+</s:else>
 <div class="submit_btn_box">
 <div id=".contents-btn-set">
 	<s:form action="CreateDestinationAction">
