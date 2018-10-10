@@ -18,7 +18,7 @@
 	<s:if test="!#session.loginIdErrorMessageList.isEmpty()">
 	<div class="error">
 	<div class="error-message">
-		a<s:iterator value="#session.loginIdErrorMessageList"><s:property />
+		<s:iterator value="#session.loginIdErrorMessageList"><s:property />
 		<br></s:iterator>
 		</div>
 		</div>
@@ -27,7 +27,7 @@
 	<s:if test="!#session.passwordErrorMessageList.isEmpty()">
 	<div class="error">
 	<div class="error-message">
-		b<s:iterator value="#session.passwordErrorMessageList"><s:property />
+		<s:iterator value="#session.passwordErrorMessageList"><s:property />
 		<br></s:iterator>
 		</div>
 		</div>
@@ -35,7 +35,7 @@
 	<s:if test="!#session.passwordIncorrectErrorMessageList.isEmpty()">
 	<div class="error">
 	<div class="error-message">
-		c<s:iterator value="#session.passwordIncorrectErrorMessageList"><s:property />
+		<s:iterator value="#session.passwordIncorrectErrorMessageList"><s:property />
 		<br></s:iterator>
 		</div>
 		</div>
@@ -44,7 +44,7 @@
 	<s:if test="!#session.newPasswordErrorMessageList.isEmpty()">
 	<div class="error">
 	<div class="error-message">
-		d<s:iterator value="#session.newPasswordErrorMessageList"><s:property />
+		<s:iterator value="#session.newPasswordErrorMessageList"><s:property />
 		<br></s:iterator>
 		</div>
 		</div>
@@ -53,7 +53,7 @@
 	<s:if test="!#session.reConfirmationNewPasswordErrorMessageList.isEmpty()">
 	<div class="error">
 	<div class="error-message">
-		e<s:iterator value="#session.reConfirmationNewPasswordErrorMessageList"><s:property />
+		<s:iterator value="#session.reConfirmationNewPasswordErrorMessageList"><s:property />
 		<br></s:iterator>
 		</div>
 		</div>
@@ -61,14 +61,11 @@
 	<s:if test="!#session.newPasswordIncorrectErrorMessageList.isEmpty()">
 	<div class="error">
 		<div class="error-message">
-		f<s:iterator value="#session.newPasswordIncorrectErrorMessageList"><s:property />
+		<s:iterator value="#session.newPasswordIncorrectErrorMessageList"><s:property />
 		<br></s:iterator>
 		</div>
 	</div>
 	</s:if>
-
-
-
 
 <s:form action="ResetPasswordConfirmAction">
 	<table class="vertical-list-table">
