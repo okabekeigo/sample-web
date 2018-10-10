@@ -18,7 +18,7 @@
 	<s:if test="!#session.loginIdErrorMessageList.isEmpty()">
 	<div class="error">
 	<div class="error-message">
-		<s:iterator value="#session.loginIdErrorMessageList"><s:property />
+		a<s:iterator value="#session.loginIdErrorMessageList"><s:property />
 		<br></s:iterator>
 		</div>
 		</div>
@@ -27,7 +27,7 @@
 	<s:if test="!#session.passwordErrorMessageList.isEmpty()">
 	<div class="error">
 	<div class="error-message">
-		<s:iterator value="#session.passwordErrorMessageList"><s:property />
+		b<s:iterator value="#session.passwordErrorMessageList"><s:property />
 		<br></s:iterator>
 		</div>
 		</div>
@@ -35,7 +35,7 @@
 	<s:if test="!#session.passwordIncorrectErrorMessageList.isEmpty()">
 	<div class="error">
 	<div class="error-message">
-		<s:iterator value="#session.passwordIncorrectErrorMessageErrorMessageList"><s:property />
+		c<s:iterator value="#session.passwordIncorrectErrorMessageList"><s:property />
 		<br></s:iterator>
 		</div>
 		</div>
@@ -44,16 +44,16 @@
 	<s:if test="!#session.newPasswordErrorMessageList.isEmpty()">
 	<div class="error">
 	<div class="error-message">
-		<s:iterator value="#session.newPasswordErrorMessageList"><s:property />
+		d<s:iterator value="#session.newPasswordErrorMessageList"><s:property />
 		<br></s:iterator>
 		</div>
 		</div>
 	</s:if>
 
-	<s:if test="!#session.reConfirmPasswordErrorMessageList.isEmpty()">
+	<s:if test="!#session.reConfirmationNewPasswordErrorMessageList.isEmpty()">
 	<div class="error">
 	<div class="error-message">
-		<s:iterator value="#session.reConfirmPasswordErrorMessageList"><s:property />
+		e<s:iterator value="#session.reConfirmationNewPasswordErrorMessageList"><s:property />
 		<br></s:iterator>
 		</div>
 		</div>
@@ -61,7 +61,7 @@
 	<s:if test="!#session.newPasswordIncorrectErrorMessageList.isEmpty()">
 	<div class="error">
 		<div class="error-message">
-		<s:iterator value="#session.newPasswordIncorrectErrorMessageErrorMessageList"><s:property />
+		f<s:iterator value="#session.newPasswordIncorrectErrorMessageList"><s:property />
 		<br></s:iterator>
 		</div>
 	</div>
