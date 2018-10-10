@@ -41,11 +41,6 @@ public class DeleteCartAction extends ActionSupport implements SessionAware{
 		CartInfoDAO cartInfoDAO = new CartInfoDAO();
 		int count = 0;
 		List<String> checkListErrorMessageList = new ArrayList<String>();
-		if(checkList==null) {
-			checkListErrorMessageList.add("チェックされていません。");
-			session.put("checkListErrorMessageList", checkListErrorMessageList);
-			return ERROR;
-		}
 
 		for(String id:checkList) {
 			System.out.println(id);
