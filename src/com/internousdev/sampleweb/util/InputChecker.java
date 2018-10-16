@@ -53,7 +53,7 @@ public class InputChecker {
 		}
 
 		if(availableHiragana){
-			regularExpression +="ぁ-ん";
+			regularExpression +="ぁ-んー";
 			characterTypeList.add("ひらがな");
 		}
 
@@ -73,7 +73,7 @@ public class InputChecker {
 		}
 
 		if(availableFullWidthSymbols){
-			regularExpression +="、。＠．，；：！＃＄％＆’＊＋―／＝？＾＿｀｛｜｝～　";
+			regularExpression +="、。＠．，；：！＃＄％＆’＊＋／＝？＾＿｀｛｜｝～　";
 			characterTypeList.add("全角記号");
 		}
 
