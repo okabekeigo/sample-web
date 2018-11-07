@@ -1,6 +1,5 @@
 package com.internousdev.sampleweb.action;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -14,10 +13,6 @@ import com.opensymphony.xwork2.ActionSupport;
 public class DeletePurchaseHistoryAction extends ActionSupport implements SessionAware{
 	private String categoryId;
 	private String sex;
-	private List<String> sexList = new ArrayList<String>();
-	private static final String MALE = "男性";
-	private static final String FEMALE = "女性";
-	private String defaultSexValue = MALE;
 	private Map<String, Object> session;
 	public String execute() {
 		String result = ERROR;
@@ -31,28 +26,9 @@ public class DeletePurchaseHistoryAction extends ActionSupport implements Sessio
 			}
 			session.put("purchaseHistoryInfoDtoList", purchaseHistoryInfoDtoList);
 
-			sexList.add(MALE);
-			sexList.add(FEMALE);
-
 			result=SUCCESS;
 		}
 		return result;
-	}
-
-	public List<String> getSexList() {
-		return sexList;
-	}
-
-	public void setSexList(List<String> sexList) {
-		this.sexList = sexList;
-	}
-
-	public String getDefaultSexValue() {
-		return defaultSexValue;
-	}
-
-	public void setDefaultSexValue(String defaultSexValue) {
-		this.defaultSexValue = defaultSexValue;
 	}
 
 	public String getCategoryId() {

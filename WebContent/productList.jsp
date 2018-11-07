@@ -13,11 +13,18 @@
 <jsp:include page="header.jsp" />
 <div id="contents">
 <h1>商品一覧画面</h1>
-<s:if test="productInfoDtoList==null">
+<s:if test="!#session.keywordsErrorMessageList.isEmpty()">
+	<div class="error">
+	<div class="error-message">
+		<s:iterator value="#session.keywordsErrorMessageList"><s:property /><br></s:iterator>
+	</div>
+	</div>
+</s:if>
+<s:elseif test="productInfoDtoList==null">
 <div class="info">
 検索結果がありません。
 </div>
-</s:if>
+</s:elseif>
 <s:else>
 <div id="product-list">
 <s:iterator value="#session.productInfoDtoList">

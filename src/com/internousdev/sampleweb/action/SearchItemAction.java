@@ -5,6 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.sampleweb.dao.MCategoryDAO;
@@ -26,22 +27,33 @@ public class SearchItemAction extends ActionSupport implements SessionAware{
 	private Map<String, Object> session;
 	public String execute() {
 		String result = ERROR;
-
+		session.remove("keywordsErrorMessageList");
 		InputChecker inputChecker = new InputChecker();
-		if(keywords==null) {
-			keywords="";
+
+		if (StringUtils.isBlank(keywords)){
+			keywords = "";
+		}else{
+			keywords = keywords.replaceAll("　", " ").replaceAll("\\s{2,}", " ");
 		}
-		keywordsErrorMessageList = inputChecker.doCheck("検索ワード", keywords, 0, 16, true, true, true, true, false,true,true);
+
+		if(!(keywords.equals(""))){
+			keywordsErrorMessageList = inputChecker.doCheck("検索ワード", keywords, 0, 16, true, true, true, true, false, false, false, true, false);
+			Iterator<String> iterator = keywordsErrorMessageList.iterator();
+			if(iterator.hasNext()) {
+				session.put("keywordsErrorMessageList", keywordsErrorMessageList);
+				return SUCCESS;
+			}
+		}
 
 		ProductInfoDAO productInfoDAO = new ProductInfoDAO();
 		switch (categoryId) {
 			case "1":
-				productInfoDtoList = productInfoDAO.getProductInfoListAll(keywords.replaceAll("　", " ").split(" "));
+				productInfoDtoList = productInfoDAO.getProductInfoListAll(keywords.split(" "));
 				result = SUCCESS;
 				break;
 
 			default:
-				productInfoDtoList = productInfoDAO.getProductInfoListByKeywords(keywords.replaceAll("　", " ").split(" "), categoryId);
+				productInfoDtoList = productInfoDAO.getProductInfoListByKeywords(keywords.split(" "), categoryId);
 				result = SUCCESS;
 				break;
 		}
@@ -49,8 +61,6 @@ public class SearchItemAction extends ActionSupport implements SessionAware{
 		if(!(iterator.hasNext())) {
 			productInfoDtoList = null;
 		}
-		session.put("keywordsErrorMessageList", keywordsErrorMessageList);
-
 	if(!session.containsKey("mCategoryList")) {
 		MCategoryDAO mCategoryDao = new MCategoryDAO();
 		mCategoryDtoList = mCategoryDao.getMCategoryList();
