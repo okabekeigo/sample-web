@@ -41,23 +41,24 @@ public class DeleteCartAction extends ActionSupport implements SessionAware{
 		CartInfoDAO cartInfoDAO = new CartInfoDAO();
 		int count = 0;
 		List<String> checkListErrorMessageList = new ArrayList<String>();
+		String userId = null;
+		if(session.containsKey("loginId")) {
+			userId = String.valueOf(session.get("loginId"));
+		}else if (session.containsKey("tempUserId")) {
+			userId = String.valueOf(session.get("tempUserId"));
+		}
 
-		for(String id:checkList) {
-			System.out.println(id);
-			count += cartInfoDAO.delete(id);
+		for(String productId:checkList) {
+			System.out.println(productId);
+			System.out.println(userId);
+			count += cartInfoDAO.delete(productId, userId);
 		}
 		if(count <= 0) {
 			checkListErrorMessageList.add("チェックされていません。");
 			session.put("checkListErrorMessageList", checkListErrorMessageList);
 			return ERROR;
 		}else {
-			String userId = null;
 			List<CartInfoDTO> cartInfoDtoList = new ArrayList<CartInfoDTO>();
-			if(session.containsKey("loginId")) {
-				userId = String.valueOf(session.get("loginId"));
-			}else if (session.containsKey("tempUserId")) {
-				userId = String.valueOf(session.get("tempUserId"));
-			}
 			cartInfoDtoList = cartInfoDAO.getCartInfoDtoList(userId);
 			Iterator<CartInfoDTO> iterator = cartInfoDtoList.iterator();
 			if(!(iterator.hasNext())) {

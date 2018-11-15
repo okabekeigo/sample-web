@@ -8,12 +8,6 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="./css/style.css">
 <title>カート</title>
-
-<script type="text/javascript">
-	function goDeleteCartAction() {
-		document.getElementById("form").action='DeleteCartAction';
-	}
-</script>
 </head>
 <body>
 <jsp:include page="header.jsp" />
@@ -49,7 +43,7 @@
 <tbody>
 <s:iterator value="#session.cartInfoDtoList">
 <tr>
-	<td><s:checkbox name="checkList" value="checked" fieldValue="%{id}"/></td>
+	<td><s:checkbox name="checkList" value="checked" fieldValue="%{productId}"/></td>
 	<s:hidden name="productId" value="%{productId}"/>
 	<td><s:property value="productName"/></td>
 	<td><s:property value="productNameKana"/></td>

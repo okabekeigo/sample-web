@@ -129,15 +129,16 @@ public class CartInfoDAO {
 		return count;
 	}
 
-	public int delete(String id) {
+	public int delete(String productId, String userId) {
 		DBConnector dbConnector = new DBConnector();
 		Connection connection = dbConnector.getConnection();
 		int count = 0;
-		String sql = "delete from cart_info where id=?";
+		String sql = "delete from cart_info where product_id=? and user_id=?";
 
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
-			preparedStatement.setString(1, id);
+			preparedStatement.setString(1, productId);
+			preparedStatement.setString(2, userId);
 
 			count = preparedStatement.executeUpdate();
 		} catch (SQLException e) {
