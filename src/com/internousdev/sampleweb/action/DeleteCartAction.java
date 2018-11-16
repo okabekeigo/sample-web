@@ -48,6 +48,8 @@ public class DeleteCartAction extends ActionSupport implements SessionAware{
 			userId = String.valueOf(session.get("tempUserId"));
 		}
 
+		// カート情報が1件のみの場合チェックをつけなければfalseが入ってくるが、
+		// 複数件総菜した場合はnullになるため空のリストを生成する。
 		if(checkList == null){
 			checkList = new ArrayList<String>();
 		}
