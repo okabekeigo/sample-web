@@ -48,6 +48,10 @@ public class DeleteCartAction extends ActionSupport implements SessionAware{
 			userId = String.valueOf(session.get("tempUserId"));
 		}
 
+		if(checkList == null){
+			checkList = new ArrayList<String>();
+		}
+
 		for(String productId:checkList) {
 			System.out.println(productId);
 			System.out.println(userId);
