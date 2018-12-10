@@ -8,6 +8,25 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="./css/style.css">
 <title>カート</title>
+<script>
+function checkValue(check){
+		var checkList = document.getElementsByClassName("checkList");
+		var checkFlag = 0;
+		for (  var i = 0;  i < checkList.length;  i++  ) {
+			if(checkFlag == 0){
+				if(checkList[i].checked) {
+					checkFlag = 1;
+				}
+			}
+		}
+	if (checkFlag == 1) {
+    	document.getElementById('delete_btn').disabled="";
+	} else {
+		document.getElementById('delete_btn').disabled="true";
+	}
+}
+</script>
+
 </head>
 <body>
 <jsp:include page="header.jsp" />
@@ -43,7 +62,7 @@
 <tbody>
 <s:iterator value="#session.cartInfoDtoList">
 <tr>
-	<td><s:checkbox name="checkList" value="checked" fieldValue="%{productId}"/></td>
+	<td><s:checkbox name="checkList" class="checkList" value="checked" fieldValue="%{productId}"  onchange="checkValue(this)"/></td>
 	<s:hidden name="productId" value="%{productId}"/>
 	<td><s:property value="productName"/></td>
 	<td><s:property value="productNameKana"/></td>
@@ -75,8 +94,8 @@
 
 <div class="submit_btn_box">
 	<div id=".contents-btn-set">
-<s:submit value="削除" class="submit_btn" onclick="this.form.action='DeleteCartAction';"/>
-</div>
+		<s:submit value="削除" id="delete_btn" class="submit_btn" onclick="this.form.action='DeleteCartAction';" disabled="true"/>
+	</div>
 </div>
 
 </s:form>
