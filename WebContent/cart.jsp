@@ -16,6 +16,7 @@ function checkValue(check){
 			if(checkFlag == 0){
 				if(checkList[i].checked) {
 					checkFlag = 1;
+					break;
 				}
 			}
 		}
