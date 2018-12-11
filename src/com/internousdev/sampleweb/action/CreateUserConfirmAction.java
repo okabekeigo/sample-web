@@ -56,7 +56,7 @@ public class CreateUserConfirmAction extends ActionSupport implements SessionAwa
 		if(familyNameErrorMessageList.size()==0
 		&& firstNameErrorMessageList.size()==0
 		&& familyNameKanaErrorMessageList.size()==0
-		&& firstNameErrorMessageList.size()==0
+		&& firstNameKanaErrorMessageList.size()==0
 		&& emailErrorMessageList.size()==0
 		&& loginIdErrorMessageList.size()==0
 		&& passwordErrorMessageList.size()==0) {
