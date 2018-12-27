@@ -34,6 +34,9 @@ public class LoginAction extends ActionSupport implements SessionAware{
 	public String execute() {
 		String result = ERROR;
 
+		session.put("loginIdErrorMessageList", "");
+		session.put("passwordErrorMessageList", "");
+
 		if(savedLoginId==true) {
 			session.put("savedLoginId", true);
 			session.put("loginId", loginId);
@@ -47,7 +50,7 @@ public class LoginAction extends ActionSupport implements SessionAware{
 		passwordErrorMessageList = inputChecker.doCheck("パスワード", password, 1, 16, true, false, false, true, false, false, false, false, false);
 
 		if(loginIdErrorMessageList.size()!=0
-		&& passwordErrorMessageList.size()!=0) {
+		|| passwordErrorMessageList.size()!=0) {
 			session.put("loginIdErrorMessageList", loginIdErrorMessageList);
 			session.put("passwordErrorMessageList", passwordErrorMessageList);
 			session.put("logined", 0);
