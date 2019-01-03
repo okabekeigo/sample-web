@@ -32,15 +32,17 @@ public class CartInfoDAO {
 		+ " pi.category_id as category_id,"
 		+ " pi.image_file_path as image_file_path, "
 		+ " pi.image_file_name as image_file_name, "
-		+ " max(pi.release_date) as release_date,"
+		+ " pi.release_date as release_date,"
 		+ " pi.release_company as release_company,"
 		+ " pi.status as status,"
-		+ " (sum(ci.product_count) * ci.price) as subtotal"
+		+ " (sum(ci.product_count) * ci.price) as subtotal,"
+		+ " max(ci.regist_date) as regist_date"
 		+ " FROM cart_info as ci"
 		+ " LEFT JOIN product_info as pi"
 		+ " ON ci.product_id = pi.product_id"
 		+ " WHERE ci.user_id = ?"
-		+ " group by product_id";
+		+ " group by product_id"
+		+ " order by regist_date desc";
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			System.out.println("cartinfodao-getcartinfodtolist:"+loginId);
