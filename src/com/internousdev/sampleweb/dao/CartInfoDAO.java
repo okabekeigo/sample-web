@@ -32,7 +32,7 @@ public class CartInfoDAO {
 		+ " pi.category_id as category_id,"
 		+ " pi.image_file_path as image_file_path, "
 		+ " pi.image_file_name as image_file_name, "
-		+ " pi.release_date as release_date,"
+		+ " max(pi.release_date) as release_date,"
 		+ " pi.release_company as release_company,"
 		+ " pi.status as status,"
 		+ " (sum(ci.product_count) * ci.price) as subtotal"
