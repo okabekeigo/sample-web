@@ -7,8 +7,13 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="./css/style.css">
-<meta http-equiv="refresh" content="3;URL='HomeAction'"/>
 <title>登録完了</title>
+<script type="text/javascript">
+	window.onload = function(){
+		var form = document.getElementById('form1');
+		setTimeout(form.submit(),3000);
+	}
+</script>
 </head>
 <body>
 <jsp:include page="header.jsp" />
@@ -17,7 +22,11 @@
 <div class="success">
 ユーザー登録が完了しました。
 </div>
-	</div>
+</div>
+<s:form id="form1" action="LoginAction">
+	<s:hidden name="loginId" value="%{loginId}" />
+	<s:hidden name="password" value="%{password}" />
+</s:form>
 <div id="footer">
 	<s:include value="footer.jsp"/>
 </div>

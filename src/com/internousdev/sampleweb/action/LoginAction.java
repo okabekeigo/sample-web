@@ -45,6 +45,7 @@ public class LoginAction extends ActionSupport implements SessionAware{
 			session.remove("loginId", loginId);
 		}
 
+
 		InputChecker inputChecker = new InputChecker();
 		loginIdErrorMessageList = inputChecker.doCheck("ログインID", loginId, 1, 8, true, false, false, true, false, false, false, false, false);
 		passwordErrorMessageList = inputChecker.doCheck("パスワード", password, 1, 16, true, false, false, true, false, false, false, false, false);
@@ -84,7 +85,7 @@ public class LoginAction extends ActionSupport implements SessionAware{
 					} catch (SQLException e) {
 						e.printStackTrace();
 					}
-					result = "settlement";
+					result = "cart";
 				}else {
 					result = SUCCESS;
 				}
