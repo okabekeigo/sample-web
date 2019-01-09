@@ -40,18 +40,11 @@ public class DeleteCartAction extends ActionSupport implements SessionAware{
 		String result=ERROR;
 		CartInfoDAO cartInfoDAO = new CartInfoDAO();
 		int count = 0;
-		List<String> checkListErrorMessageList = new ArrayList<String>();
 		String userId = null;
 		if(session.containsKey("loginId")) {
 			userId = String.valueOf(session.get("loginId"));
 		}else if (session.containsKey("tempUserId")) {
 			userId = String.valueOf(session.get("tempUserId"));
-		}
-
-		// カート情報が1件のみの場合チェックをつけなければfalseが入ってくるが、
-		// 複数件総菜した場合はnullになるため空のリストを生成する。
-		if(checkList == null){
-			checkList = new ArrayList<String>();
 		}
 
 		for(String productId:checkList) {
@@ -60,8 +53,6 @@ public class DeleteCartAction extends ActionSupport implements SessionAware{
 			count += cartInfoDAO.delete(productId, userId);
 		}
 		if(count <= 0) {
-			checkListErrorMessageList.add("チェックされていません。");
-			session.put("checkListErrorMessageList", checkListErrorMessageList);
 			return ERROR;
 		}else {
 			List<CartInfoDTO> cartInfoDtoList = new ArrayList<CartInfoDTO>();
